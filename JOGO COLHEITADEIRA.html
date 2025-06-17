@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Colheitadeira</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #cceabb;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+      background: url('https://i.imgur.com/SJ9X7T8.png') repeat;
+      background-size: 50px 50px;
+    }
+    #info {
+      position: absolute;
+      top: 10px;
+      left: 100px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 10px;
+    }
+        .voltar {
+            margin-top: 50px;
+            padding: 300px 40px;
+            background-color: #f80f07;
+            color: rgb(255, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .voltar:hover {
+            background-color: #ff1100;
+        }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <strong>Colheita:</strong> <span id="score">0</span>
+  </div>
+  <canvas id="gameCanvas" width="1500" height="1000"></canvas>
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let score = 0;
+    const scoreEl = document.getElementById("score");
+
+    const colheitadeira = {
+      x: 400,
+      y: 300,
+      width: 50,
+      height: 50,
+      color: "green",
+      speed: 15,
+    };
+
+    const plantations = [];
+    for (let i = 0; i < 100000; i++) {
+      plantations.push({
+        x: Math.random() * (canvas.width - 100),
+        y: Math.random() * (canvas.height - 100),
+        width: 30,
+        height: 30,
+        harvested: false,
+      });
+    }
+
+    const keys = {};
+    document.addEventListener("keydown", e => keys[e.key] = true);
+    document.addEventListener("keyup", e => keys[e.key] = false);
+
+    function update() {
+      if (keys["ArrowUp"]) colheitadeira.y -= colheitadeira.speed;
+      if (keys["ArrowDown"]) colheitadeira.y += colheitadeira.speed;
+      if (keys["ArrowLeft"]) colheitadeira.x -= colheitadeira.speed;
+      if (keys["ArrowRight"]) colheitadeira.x += colheitadeira.speed;
+
+      // Limites da tela
+      colheitadeira.x = Math.max(0, Math.min(canvas.width - colheitadeira.width, colheitadeira.x));
+      colheitadeira.y = Math.max(0, Math.min(canvas.height - colheitadeira.height, colheitadeira.y));
+
+      // Colisão com plantações
+      plantations.forEach(p => {
+        if (!p.harvested &&
+            colheitadeira.x < p.x + p.width &&
+            colheitadeira.x + colheitadeira.width > p.x &&
+            colheitadeira.y < p.y + p.height &&
+            colheitadeira.y + colheitadeira.height > p.y) {
+          p.harvested = true;
+          score++;
+          scoreEl.textContent = score;
+        }
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Plantações
+      plantations.forEach(p => {
+        if (!p.harvested) {
+          ctx.fillStyle = "#f4c542";
+          ctx.fillRect(p.x, p.y, p.width, p.height);
+        }
+      });
+      // Colheitadeira
+      ctx.fillStyle = colheitadeira.color;
+      ctx.fillRect(colheitadeira.x, colheitadeira.y, colheitadeira.width, colheitadeira.height);
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+  </script>
+</body>
+</html>
+<button class="voltar" onclick="window.history.back()">Voltar</button>

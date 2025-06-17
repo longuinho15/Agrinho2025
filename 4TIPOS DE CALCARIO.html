@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Máquinas Agrícolas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c8f8f6;
+            text-align: center;
+            margin: 50px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .galeria {
+            background-color: #77f4f8;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(900px, 1fr));
+            gap: 40px;
+            justify-items: center;
+        }
+        .galeria img {
+            width: 200%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 10 4px 8px rgba(245, 241, 2, 0.959);
+        }
+        .voltar {
+            margin-top: 30px;
+            padding: 40px 40px;
+            background-color: #4CAF50;
+            color: rgb(245, 11, 11);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .voltar:hover {
+            background-color: #e4d01b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galeria de Máquinas Agrícolas</h1>
+    <button>
+    <div class="galeria">
+        <a href="Calcário Calcítico.html"><img src="img.jpeg/imagens/JHON DEER.jpeg" height="150" width="300"></a>
+<h1>Calcário Calcítico
+</h1>
+</button>
+<button>
+    <div class="galeria">
+        <a href="Calcário Dolomítico.html"><img src="img.jpeg/imagens/CASE.jpg" height="150" width="300"></a>
+<h1>
+    Calcário Dolomítico
+</h1>
+</button>
+<button>
+    <div class="galeria">
+        <a href="Calcário Magnesiano.html"><img src="img.jpeg/imagens/CR11.jpg" height="150" width="1000"></a>
+<h1>
+    calcário magnesiano
+</button>
+<button>
+    <div class="galeria">
+        <a href="Calcário Filler.html"><img src="img.jpeg/imagens/MASSEY F .jpg" height="150" width="300"></a>
+<h1>
+    Calcário Filler
+</h1>
+</button>
+    </div>
+    <button class="voltar" onclick="window.history.back()">Voltar</button>
+</body>
+</html>
