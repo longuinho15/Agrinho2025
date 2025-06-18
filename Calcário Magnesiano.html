@@ -9,13 +9,13 @@
       font-family: "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2f6f9;
+      background-color: #cce4f7;
       color: #333;
     }
 
     header {
       background-color: #37474f;
-      color: white;
+      color: rgb(250, 243, 243);
       padding: 40px 20px;
       text-align: center;
     }
@@ -34,7 +34,7 @@
       max-width: 1000px;
       margin: 30px auto;
       padding: 40px;
-      background-color: white;
+      background-color: rgb(199, 222, 230);
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.08);
     }
@@ -67,12 +67,26 @@
     }
 
     footer {
-      background-color: #cfd8dc;
+      background-color: #37474f;
+      color: #f5f2f2;
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
       margin-top: 40px;
     }
+  
+        .voltar {
+            margin-top: 30px;
+            padding: 40px 40px;
+            background-color: #96edf8;
+            color: rgb(15, 17, 17);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .voltar:hover {
+            background-color: #e4d01b;
+        }
   </style>
 </head>
 <body>
@@ -145,10 +159,10 @@
       </ul>
     </section>
   </div>
-
+  <button class="voltar" onclick="window.history.back()">Voltar</button>
   <footer>
   <br>
-    &copy; 2025 – Calcário Magnesiano .
+    &copy; 2025 – Calcário Magnesiano - Todos os direitos reservados.
   </footer>
 
 </body>

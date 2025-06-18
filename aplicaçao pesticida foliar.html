@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f7fcf9;
+      background-color: #baf7d2;
       color: #333;
     }
 
@@ -28,7 +28,7 @@
       max-width: 1000px;
       margin: 40px auto;
       padding: 30px;
-      background-color: #ffffff;
+      background-color: #ccf8e6;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
@@ -60,12 +60,26 @@
     }
 
     footer {
-      background-color: #c8e6c9;
+      background-color: #27a52caf;
       text-align: center;
+      color: #fcf8f8;
       padding: 20px;
       margin-top: 40px;
       font-size: 0.9em;
     }
+  
+        .voltar {
+            margin-top: 30px;
+            padding: 40px 40px;
+            background-color: #6cf1e0;
+            color: rgb(19, 18, 18);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .voltar:hover {
+            background-color: #e4d01b;
+        }
   </style>
 </head>
 <body>
@@ -132,9 +146,9 @@
     </section>
 
   </div>
-
+  <button class="voltar" onclick="window.history.back()">Voltar</button>
   <footer>
-    &copy; 2025 - Informações sobre técnicas agrícolas sustentáveis | Aplicação Foliar de Pesticidas
+    &copy; 2025 - Aplicação Foliar - Todos os direitos reservados.
   </footer>
 
 </body>

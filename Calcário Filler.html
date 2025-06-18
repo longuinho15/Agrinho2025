@@ -34,7 +34,7 @@
       max-width: 1000px;
       margin: 30px auto;
       padding: 40px;
-      background-color: white;
+      background-color: rgb(250, 241, 199);
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.07);
     }
@@ -73,6 +73,19 @@
       font-size: 0.9em;
       margin-top: 40px;
     }
+  
+        .voltar {
+            margin-top: 30px;
+            padding: 40px 40px;
+            background-color: #e0f336;
+            color: rgb(8, 8, 8);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .voltar:hover {
+            background-color: #82f4f8;
+        }
   </style>
 </head>
 <body>
@@ -139,10 +152,10 @@
       </ul>
     </section>
   </div>
-
+  <button class="voltar" onclick="window.history.back()">Voltar</button>
   <footer>
      <br>
-    &copy; 2025 –  Calcário Filler.
+    &copy; 2025 –  Calcário Filler - Todos os direitos reservados.
   </footer>
 
 </body>
